@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497127145814",
+    "project_id": "gshop-a044a",
+    "storage_bucket": "gshop-a044a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497127145814:android:3a3593c59fcd66ae8356f7",
+        "android_client_info": {
+          "package_name": "com.example.gshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkHrzug7JKlHddbH9mVT_arlQibRXyBOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
