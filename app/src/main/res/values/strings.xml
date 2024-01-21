@@ -1,4 +1,15 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">GShop</string>
     <string name="splash_text_title">GK</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="header_img_description">Header Image</string>
+    <string name="title_login" tools:ignore="ExtraTranslation">LOGIN</string>
+    <string name="title_register" tools:ignore="ExtraTranslation">REGISTER</string>
+    <string name="et_hint_email_id" tools:ignore="ExtraTranslation">Email ID</string>
+    <string name="et_hint_password" tools:ignore="ExtraTranslation">Password</string>
+    <string name="btn_lbl_login" tools:ignore="ExtraTranslation">Login</string>
+    <string name="btn_lbl_register" tools:ignore="ExtraTranslation">Register</string>
+    <string name="register" tools:ignore="ExtraTranslation"><u>Register</u></string>
+    <string name="don_t_have_an_account" tools:ignore="ExtraTranslation">Don\'t have an Account?</string>
+
 </resources>
