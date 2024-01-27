@@ -21,6 +21,7 @@
 
     <EditText
         android:id="@+id/first_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
         android:layout_height="59dp"
         android:background="@drawable/ed_text_border"
@@ -38,6 +39,7 @@
 
     <EditText
         android:id="@+id/last_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
         android:layout_height="59dp"
         android:background="@drawable/ed_text_border"
@@ -55,6 +57,7 @@
 
     <EditText
         android:id="@+id/email_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
         android:layout_height="59dp"
         android:background="@drawable/ed_text_border"
@@ -72,6 +75,7 @@
 
     <EditText
         android:id="@+id/password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
         android:layout_height="59dp"
         android:background="@drawable/ed_text_border"
@@ -90,6 +94,7 @@
 
     <EditText
         android:id="@+id/confirm_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="292dp"
         android:layout_height="59dp"
         android:background="@drawable/ed_text_border"

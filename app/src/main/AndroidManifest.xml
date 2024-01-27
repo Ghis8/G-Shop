@@ -12,8 +12,9 @@
         android:theme="@style/Theme.GShop"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.BaseActivity"
             android:exported="false" />
+
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false"

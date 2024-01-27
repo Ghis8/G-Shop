@@ -17,4 +17,12 @@
     <string name="last_name">Last Name</string>
     <string name="have_an_account">Have An Account ?</string>
     <string name="login">Login</string>
+    <string name="err_msg_enter_first_name">Please enter First Name</string>
+    <string name="err_msg_enter_last_name">Please enter Last Name</string>
+    <string name="err_msg_enter_email_address">Please enter Email Address</string>
+    <string name="err_msg_enter_password">Please enter Password</string>
+    <string name="err_msg_enter_confirm_password">Please enter Confirm Password</string>
+    <string name="err_msg_password_do_not_match">Password and Confirm Password don\'t match</string>
+    <string name="registery_success">Thanks for registering!</string>
+
 </resources>
