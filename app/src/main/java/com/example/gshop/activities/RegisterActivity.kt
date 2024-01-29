@@ -44,8 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                     confirmPassword.text.toString()
             )){
                 registerUser(email.text.toString(),password.text.toString())
-            }else{
-                Toast.makeText(this,"Something went wrong",Toast.LENGTH_SHORT).show()
+
             }
         }
     }
@@ -96,6 +95,8 @@ class RegisterActivity : AppCompatActivity() {
                         // register firebase user
                         val firebaseUser:FirebaseUser=task.result!!.user!!
                         Toast.makeText(this,"User registered successfully. your email ${firebaseUser.email}",Toast.LENGTH_SHORT).show()
+                        FirebaseAuth.getInstance().signOut()
+                        finish()
                     }else{
                         Toast.makeText(this,task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
                     }

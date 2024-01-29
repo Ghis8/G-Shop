@@ -24,5 +24,7 @@
     <string name="err_msg_enter_confirm_password">Please enter Confirm Password</string>
     <string name="err_msg_password_do_not_match">Password and Confirm Password don\'t match</string>
     <string name="registery_success">Thanks for registering!</string>
+    <string name="progressBar_text">Please Wait&#8230;</string>
+    <string name="enter_email_reset_password">Enter your Email ID, we will send you and email to reset your password</string>
 
 </resources>

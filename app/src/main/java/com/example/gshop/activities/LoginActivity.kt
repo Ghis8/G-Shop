@@ -8,27 +8,29 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.gshop.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var email:EditText
+    private lateinit var password: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val loginBtn=findViewById<Button>(R.id.btn_login)
-        val email=findViewById<EditText>(R.id.ed_email)
-        val password=findViewById<EditText>(R.id.ed_password)
+
+        email=findViewById(R.id.reset_email_id)
+        password=findViewById(R.id.ed_password)
+        val loginBtn=findViewById<Button>(R.id.send_email)
         val register=findViewById<TextView>(R.id.tv_register)
+        val forgot_password=findViewById<TextView>(R.id.forgot_password)
 
+        forgot_password.setOnClickListener {
+            val intent=Intent(this,ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
         loginBtn.setOnClickListener {
-            if(email.text.toString() == "" || password.text.toString()==""){
-                Toast.makeText(this,"Email and Password Required",Toast.LENGTH_SHORT).show()
-            }else if (email.text.toString()=="ghislain@gmail.com" && password.text.toString()=="password") {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-
-            }else{
-                Toast.makeText(this,"Wrong Credentials",Toast.LENGTH_SHORT).show()
-            }
+            loginUser(email.text.toString(),password.text.toString())
         }
 
         register.setOnClickListener {
@@ -36,6 +38,39 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun loginUser(email:String,password:String){
+        if(validateLoginDetails(email,password)){
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener { task->
+                    if(task.isSuccessful){
+                        val user:FirebaseUser=task.result!!.user!!
+                        Toast.makeText(this,"User logged successfully",Toast.LENGTH_SHORT).show()
+                        val intent=Intent(this,MainActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(this,task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+        }
+    }
+    private fun validateLoginDetails(email:String,password:String):Boolean{
+        return when{
+            email.trim { it <=' ' }.isNullOrEmpty()->{
+                Toast.makeText(this,"Email address required",Toast.LENGTH_SHORT).show()
+                false
+            }
+            password.trim{it <=' '}.isNullOrEmpty()->{
+                Toast.makeText(this,"Password required",Toast.LENGTH_SHORT).show()
+                false
+            }else->{
+                true
+            }
+        }
+    }
+
+
 
 
 
