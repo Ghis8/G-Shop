@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 open class BaseActivity : AppCompatActivity() {
     private lateinit var mProgressBar:Dialog
     fun showErrorSnackBar(message:String,errorMessage:Boolean){
-        val snackBar=Snackbar.make(findViewById(R.id.content),message,Snackbar.LENGTH_LONG)
+        val snackBar=Snackbar.make(findViewById(android.R.id.content),message,Snackbar.LENGTH_LONG)
         val snackBarView=snackBar.view
 
         if (errorMessage){
@@ -23,7 +23,7 @@ open class BaseActivity : AppCompatActivity() {
         snackBar.show()
     }
 
-    fun showProgressDialog(text:String?){
+    fun showProgressDialog(){
         mProgressBar= Dialog(this)
         mProgressBar.setContentView(R.layout.dialog_progress)
         mProgressBar.setCancelable(false)
