@@ -10,7 +10,7 @@ import android.widget.Toast
 import com.example.gshop.R
 import com.google.firebase.auth.FirebaseAuth
 
-class ForgotPasswordActivity : AppCompatActivity() {
+class ForgotPasswordActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
@@ -28,17 +28,23 @@ class ForgotPasswordActivity : AppCompatActivity() {
     }
     fun sendEmail(email:String){
         if (!email.trim { it <=' ' }.isNullOrEmpty()){
+            showProgressDialog()
             FirebaseAuth.getInstance().sendPasswordResetEmail(email)
                 .addOnCompleteListener { task ->
                     if(task.isSuccessful){
-                        Toast.makeText(this,"Reset Password Email sent Successfully",Toast.LENGTH_SHORT)
+                        hideProgressDialog()
+                        //Toast.makeText(this,"Reset Password Email sent Successfully",Toast.LENGTH_SHORT)
+                        showErrorSnackBar("Reset Password Email sent successfully",false)
                         finish()
                     }else{
-                        Toast.makeText(this,task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
+                        hideProgressDialog()
+                        showErrorSnackBar(task.exception!!.message.toString(),true)
+                        //Toast.makeText(this,task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
                     }
                 }
         }else{
-            Toast.makeText(this,"Email address required",Toast.LENGTH_SHORT).show()
+            showErrorSnackBar("Email Address required",true)
+            //Toast.makeText(this,"Email address required",Toast.LENGTH_SHORT).show()
         }
     }
 }
